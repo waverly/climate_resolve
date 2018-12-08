@@ -32,13 +32,15 @@ class App extends Component {
     loaded: false,
     innerLoaded: false,
     width: 0,
-    height: 0
+    height: 0,
+    surveyData: []
   };
 
-  setFilterValue = newValue => {
-    this.setState({
-      currentFilterValue: newValue
-    });
+  updateSurveyData = (id, data) => {
+    console.log("inside surveydata");
+    let slicedState = this.state.surveyData.slice(); //creates the clone of the state
+    slicedState[id] = data;
+    this.setState({ surveyData: slicedState });
   };
 
   updateWindowDimensions = () => {
@@ -85,7 +87,16 @@ class App extends Component {
                   <Nav width={this.state.width} />
                   <Switch location={location}>
                     <Route path="/" exact render={props => <Home />} />
-                    <Route path="/survey" exact render={props => <Survey />} />
+                    <Route
+                      path="/survey"
+                      exact
+                      render={props => (
+                        <Survey
+                          surveyData={this.state.surveyData}
+                          updateSurveyData={this.updateSurveyData}
+                        />
+                      )}
+                    />
                   </Switch>
                 </InnerLoadWrapper>
               </LoadWrapper>
