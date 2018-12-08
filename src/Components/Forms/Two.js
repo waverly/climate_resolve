@@ -22,10 +22,17 @@ class Two extends Component {
   }
 
   render() {
+    let checkboxData = null;
+
+    if (this.props.surveyData[2]) {
+      checkboxData = this.props.surveyData[2].checkboxGroup;
+      console.log("we have something");
+    }
+
     return (
       <Formik
         initialValues={{
-          checkboxGroup: []
+          checkboxGroup: checkboxData || []
         }}
         validationSchema={Yup.object().shape({
           checkboxGroup: Yup.array().required(

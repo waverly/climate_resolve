@@ -33,6 +33,12 @@ const InnerWrapper = styled.div`
   }
 `;
 
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
 const InputFeedback = styled.div`
   font-size: 0.8rem;
   margin: 10px 0;
@@ -77,8 +83,10 @@ class Survey extends Component {
                 />
               </Sequence.Step>
 
-              <Sequence.Prev />
-              <Sequence.Next />
+              <ButtonWrapper>
+                <Sequence.Prev />
+                <Sequence.Next />
+              </ButtonWrapper>
             </Sequence>
           </InnerWrapper>
         </PageWrap>

@@ -4,11 +4,7 @@ import { render } from "react-dom";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 
-const InputFeedback = styled.div`
-  font-size: 0.8rem;
-  margin: 10px 0;
-  color: red;
-`;
+import { InputFeedback } from "./Utils";
 
 class One extends Component {
   state = {
@@ -24,10 +20,22 @@ class One extends Component {
   }
 
   render() {
+    let email,
+      firstname,
+      lastname = null;
+
+    if (this.props.surveyData[1]) {
+      ({ email, firstname, lastname } = this.props.surveyData[1]);
+      console.log("we have something");
+    }
+
     return (
       <Formik
-        initialValues={{ email: "", firstname: "", lastname: "" }}
-        // on submit
+        initialValues={{
+          email: email || "",
+          firstname: firstname || "",
+          lastname: lastname || ""
+        }} // on submit
         // i want to validate values (can use an alert for now)
         // not submit if all values aren't valid
         // if all values are valid, store data in state

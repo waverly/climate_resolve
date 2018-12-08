@@ -32,6 +32,7 @@ class Two extends Component {
           console.log(values, actions);
           setTimeout(() => {
             console.log(JSON.stringify(values, null, 2));
+            this.props.updateSurveyData(3, values);
             actions.setSubmitting(false);
           }, 500);
         }}
