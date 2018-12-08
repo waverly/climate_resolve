@@ -10,8 +10,7 @@ import { fetchColor } from "Utils/prismic-configuration";
 export const globalStyles = css`
   ${normalized}
 
-  ${"" /* TODO: CONVERT TO EOT */}
-	@font-face {
+  @font-face {
     font-family: "Acumin Pro";
     font-style: normal;
     font-weight: normal;
@@ -54,6 +53,19 @@ export const globalStyles = css`
     padding: 0;
     border-radius: 0;
     color: #454545;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 3px;
+    border: 1px solid black;
+  }
+
+  form {
+    width: 400px;
+  }
+
+  input {
+    display: block;
+    width: 100%;
   }
 
   label {
@@ -62,6 +74,7 @@ export const globalStyles = css`
 
   button {
     cursor: pointer;
+    background-color: lightgrey;
   }
 
   h1,

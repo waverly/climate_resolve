@@ -10,17 +10,9 @@ import { injectGlobal, ThemeProvider } from "styled-components";
 import { globalStyles } from "Styles/global";
 import { theme } from "Styles/themes";
 
-import Info from "./Views/Info";
-import News from "./Views/News";
-import Work from "./Views/Work";
-import WorkDetail from "./Views/WorkDetail";
+import Home from "./Views/Home";
+import Survey from "./Views/Survey";
 import Nav from "./Components/Nav";
-
-import {
-  apiEndpoint,
-  fetchColor,
-  fetchTags
-} from "Utils/prismic-configuration";
 
 injectGlobal`
 	${globalStyles}
@@ -39,7 +31,6 @@ class App extends Component {
   state = {
     loaded: false,
     innerLoaded: false,
-    currentFilterValue: "all",
     width: 0,
     height: 0
   };
@@ -65,44 +56,16 @@ class App extends Component {
     setTimeout(() => {
       this.setState({ innerLoaded: true });
     }, 2000);
-
-    const [tags, color] = await Promise.all([fetchTags(), fetchColor()]);
-
-    this.setState({
-      tagData: tags,
-      color: color
-    });
-
-    this.setState({ currentFilterValue: "all" });
-
-    // if (this.state.width > 768) {
-    //   this.setState({ currentFilterValue: "all" });
-    // } else {
-    //   this.setState({ currentFilterValue: "" });
-    // }
   }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateWindowDimensions);
   }
 
-  // this sets filter back to "all" after page change
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      if (this.props.location.pathname === "/") {
-        this.setState({
-          currentFilterValue: "all"
-        });
-      }
-    }
-  }
-
   render() {
-    const { color } = this.state;
-
     const baseTheme = {
       ...theme,
-      keyColor: color
+      keyColor: "blue"
     };
 
     return (
@@ -119,26 +82,10 @@ class App extends Component {
                   innerLoaded={this.state.loaded}
                   key={location.pathname}
                 >
-                  <Nav
-                    setFilterValue={this.setFilterValue}
-                    currentFilterValue={this.state.currentFilterValue}
-                    tags={this.state.tagData}
-                    width={this.state.width}
-                  />
+                  <Nav width={this.state.width} />
                   <Switch location={location}>
-                    <Route
-                      path="/"
-                      exact
-                      render={props => (
-                        <Work
-                          keyColor={this.state.color}
-                          currentFilterValue={this.state.currentFilterValue}
-                        />
-                      )}
-                    />
-                    <Route path="/work/:uid" exact component={WorkDetail} />
-                    <Route path="/news" exact component={News} />
-                    <Route path="/about" exact component={Info} />
+                    <Route path="/" exact render={props => <Home />} />
+                    <Route path="/survey" exact render={props => <Survey />} />
                   </Switch>
                 </InnerLoadWrapper>
               </LoadWrapper>
