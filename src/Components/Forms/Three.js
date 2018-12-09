@@ -6,27 +6,15 @@ import * as Yup from "yup";
 
 import { RadioButton } from "./Inputs";
 import RadioButtonGroup from "./RadioButtonGroup";
-import { InputFeedback } from "./Utils";
+import { InputFeedback, ButtonWrapper } from "./Utils";
 
 class Two extends Component {
-  state = {
-    loaded: false
-  };
-
-  async componentDidMount() {
-    window.scrollTo(0, 0);
-
-    setTimeout(() => {
-      this.setState({ loaded: true });
-    }, 1000);
-  }
-
   render() {
     return (
       <Formik
         initialValues={{ radioGroup: "" }}
         validationSchema={Yup.object().shape({
-          radioGroup: Yup.string().required("A radio option is required")
+          radioGroup: Yup.string().required("Please select one option")
         })}
         onSubmit={(values, actions) => {
           console.log(values, actions);
@@ -66,9 +54,21 @@ class Two extends Component {
                 label="Own our home"
               />
             </RadioButtonGroup>
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
+            {errors.radioGroup && touched.radioGroup && (
+              <InputFeedback>{errors.radioGroup}</InputFeedback>
+            )}
+            <ButtonWrapper>
+              <button
+                type="button"
+                onClick={this.props.goBack}
+                disabled={isSubmitting}
+              >
+                Go Back
+              </button>
+              <button type="submit" disabled={isSubmitting}>
+                Continue
+              </button>
+            </ButtonWrapper>
           </Form>
         )}
       />

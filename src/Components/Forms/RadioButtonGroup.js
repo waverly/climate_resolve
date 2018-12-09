@@ -1,8 +1,5 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
-import { render } from "react-dom";
-import { Formik, Field, Form } from "formik";
-import * as Yup from "yup";
 
 import { InputFeedback } from "./Utils";
 

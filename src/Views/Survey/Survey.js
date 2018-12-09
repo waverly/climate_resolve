@@ -1,13 +1,9 @@
 import React, { Component, Fragment } from "react";
 import styled from "styled-components";
-import { render } from "react-dom";
-import { Formik, Field, Form } from "formik";
-import * as Yup from "yup";
 
-import { One, Two, Three } from "Components/Forms";
+import { Zero, One, Two, Three } from "Components/Forms";
 import Sequence from "Components/Sequence";
 import { generateKey } from "Utils/helpers";
-import { media } from "Styles/style-utils";
 
 const PageWrap = styled.div`
   text-align: left;
@@ -63,7 +59,45 @@ class Survey extends Component {
       return (
         <PageWrap loaded={this.state.loaded}>
           <InnerWrapper>
-            <Sequence>
+            <Sequence
+              render={({ advance, goBack }) => (
+                <React.Fragment>
+                  <Sequence.Step number={0}>
+                    <Zero advance={advance} />
+                  </Sequence.Step>
+                  <Sequence.Step number={1}>
+                    <One
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={2}>
+                    <Two
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={3}>
+                    <Three
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  {/* <ButtonWrapper>
+                    <button onClick={goBack}>previous</button>
+                    <button onClick={advance}>next</button>
+                  </ButtonWrapper> */}
+                </React.Fragment>
+              )}
+            />
+
+            {/* <Sequence>
               <Sequence.Step number={0}>
                 <One
                   surveyData={this.props.surveyData}
@@ -87,7 +121,7 @@ class Survey extends Component {
                 <Sequence.Prev />
                 <Sequence.Next />
               </ButtonWrapper>
-            </Sequence>
+            </Sequence> */}
           </InnerWrapper>
         </PageWrap>
       );

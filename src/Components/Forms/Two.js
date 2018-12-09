@@ -6,27 +6,14 @@ import * as Yup from "yup";
 
 import { Checkbox } from "./Inputs";
 import CheckboxGroup from "./CheckboxGroup";
-import { InputFeedback } from "./Utils";
+import { InputFeedback, ButtonWrapper } from "./Utils";
 
 class Two extends Component {
-  state = {
-    loaded: false
-  };
-
-  async componentDidMount() {
-    window.scrollTo(0, 0);
-
-    setTimeout(() => {
-      this.setState({ loaded: true });
-    }, 1000);
-  }
-
   render() {
     let checkboxData = null;
 
     if (this.props.surveyData[2]) {
       checkboxData = this.props.surveyData[2].checkboxGroup;
-      console.log("we have something");
     }
 
     return (
@@ -40,14 +27,10 @@ class Two extends Component {
           )
         })}
         onSubmit={(values, actions) => {
-          if (!values) {
-            alert("no values");
-          }
-          console.log(values, actions);
           setTimeout(() => {
             console.log(JSON.stringify(values, null, 2));
             this.props.updateSurveyData(2, values);
-            console.log(this.props.surveyData);
+            this.props.advance();
             actions.setSubmitting(false);
           }, 500);
         }}
@@ -108,9 +91,22 @@ class Two extends Component {
               />
             </CheckboxGroup>
 
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
+            {errors.checkboxGroup && touched.checkboxGroup && (
+              <InputFeedback>{errors.checkboxGroup}</InputFeedback>
+            )}
+
+            <ButtonWrapper>
+              <button
+                type="button"
+                onClick={this.props.goBack}
+                disabled={isSubmitting}
+              >
+                Go Back
+              </button>
+              <button type="submit" disabled={isSubmitting}>
+                Continue
+              </button>
+            </ButtonWrapper>
           </Form>
         )}
       />

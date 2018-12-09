@@ -4,29 +4,17 @@ import { render } from "react-dom";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 
-import { InputFeedback } from "./Utils";
+import { InputFeedback, ButtonWrapper } from "./Utils";
 
 class One extends Component {
-  state = {
-    loaded: false
-  };
-
-  async componentDidMount() {
-    window.scrollTo(0, 0);
-
-    setTimeout(() => {
-      this.setState({ loaded: true });
-    }, 1000);
-  }
-
   render() {
+    // once submitted, store values in state to use as initial values
     let email,
       firstname,
       lastname = null;
 
     if (this.props.surveyData[1]) {
       ({ email, firstname, lastname } = this.props.surveyData[1]);
-      console.log("we have something");
     }
 
     return (
@@ -43,10 +31,10 @@ class One extends Component {
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
             console.log(values);
-            alert(JSON.stringify(values, null, 2));
             this.props.updateSurveyData(1, values);
             console.log(this.props.surveyData);
             setSubmitting(false);
+            this.props.advance();
           }, 500);
         }}
         validationSchema={Yup.object().shape({
@@ -85,7 +73,7 @@ class One extends Component {
                 error={errors.firstname && touched.firstname}
               />
               {errors.firstname && touched.firstname && (
-                <div className="input-feedback">{errors.firstname}</div>
+                <InputFeedback>{errors.firstname}</InputFeedback>
               )}
               <label htmlFor="lastname" style={{ display: "block" }}>
                 Last Name
@@ -115,20 +103,21 @@ class One extends Component {
                 error={errors.email && touched.email}
               />
               {errors.email && touched.email && (
-                <div className="input-feedback">{errors.email}</div>
+                <InputFeedback>{errors.email}</InputFeedback>
               )}
 
-              <button
-                type="button"
-                className="outline"
-                onClick={handleReset}
-                disabled={!dirty || isSubmitting}
-              >
-                Reset
-              </button>
-              <button type="submit" disabled={isSubmitting}>
-                Submit
-              </button>
+              <ButtonWrapper>
+                <button
+                  type="button"
+                  onClick={this.props.goBack}
+                  disabled={isSubmitting}
+                >
+                  Go Back
+                </button>
+                <button type="submit" disabled={isSubmitting}>
+                  Continue
+                </button>
+              </ButtonWrapper>
             </Form>
           );
         }}
