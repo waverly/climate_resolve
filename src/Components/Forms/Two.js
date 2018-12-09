@@ -28,8 +28,8 @@ class Two extends Component {
         })}
         onSubmit={(values, actions) => {
           setTimeout(() => {
-            console.log(JSON.stringify(values, null, 2));
-            this.props.updateSurveyData(2, values);
+            const checkboxData = { languages: values.checkboxGroup };
+            this.props.updateSurveyData(2, checkboxData);
             this.props.advance();
             actions.setSubmitting(false);
           }, 500);

@@ -65,11 +65,11 @@ export const globalStyles = css`
 
   input {
     display: block;
-    width: 100%;
   }
 
-  label {
-    color: #454545;
+  input[type="text"] {
+    width: 100%;
+    margin-bottom: 20px;
   }
 
   button {

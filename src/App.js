@@ -33,21 +33,27 @@ class App extends Component {
     innerLoaded: false,
     width: 0,
     height: 0,
-    surveyData: []
+    surveyData: {}
   };
 
+  // iterate over object, set state value
+
   updateSurveyData = (id, data) => {
-    console.log("inside surveydata");
-    let slicedState = this.state.surveyData.slice(); //creates the clone of the state
-    slicedState[id] = data;
-    this.setState({ surveyData: slicedState });
+    let surveyDataCopy = Object.assign({}, this.state.surveyData);
+
+    Object.keys(data).forEach(function(key, index) {
+      const value = data[key];
+      surveyDataCopy[key] = value;
+    });
+
+    this.setState({ surveyData: surveyDataCopy });
   };
 
   updateWindowDimensions = () => {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     this.updateWindowDimensions();
     window.addEventListener("resize", this.updateWindowDimensions);
 

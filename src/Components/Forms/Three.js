@@ -7,8 +7,19 @@ import * as Yup from "yup";
 import { RadioButton } from "./Inputs";
 import RadioButtonGroup from "./RadioButtonGroup";
 import { InputFeedback, ButtonWrapper } from "./Utils";
+import firebase from "../../firebase.js";
 
-class Two extends Component {
+class Three extends Component {
+  pushToFirebase = e => {
+    console.log("inside of push to firebase");
+    // e.preventDefault();
+    const itemsRef = firebase.database().ref("userdata");
+    itemsRef.push(this.props.surveyData);
+
+    //RESET STATE
+    // no function to do that yet
+  };
+
   render() {
     return (
       <Formik
@@ -19,8 +30,14 @@ class Two extends Component {
         onSubmit={(values, actions) => {
           console.log(values, actions);
           setTimeout(() => {
-            console.log(JSON.stringify(values, null, 2));
-            this.props.updateSurveyData(3, values);
+            const radioData = { rent_own: values.radioGroup };
+            this.props.updateSurveyData(3, radioData);
+
+            // does this need to be async ?
+            this.pushToFirebase();
+
+            this.props.advance();
+
             actions.setSubmitting(false);
           }, 500);
         }}
@@ -44,13 +61,13 @@ class Two extends Component {
               <Field
                 component={RadioButton}
                 name="radioGroup"
-                id="Rent our home"
+                id="rent"
                 label="Rent our home"
               />
               <Field
                 component={RadioButton}
                 name="radioGroup"
-                id="Own our home"
+                id="own"
                 label="Own our home"
               />
             </RadioButtonGroup>
@@ -66,7 +83,7 @@ class Two extends Component {
                 Go Back
               </button>
               <button type="submit" disabled={isSubmitting}>
-                Continue
+                Submit Form
               </button>
             </ButtonWrapper>
           </Form>
@@ -76,4 +93,4 @@ class Two extends Component {
   }
 }
 
-export default Two;
+export default Three;

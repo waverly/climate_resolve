@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import styled from "styled-components";
 
-import { Zero, One, Two, Three } from "Components/Forms";
+import { Results, Zero, One, Two, Three } from "Components/Forms";
 import Sequence from "Components/Sequence";
 import { generateKey } from "Utils/helpers";
 
@@ -85,6 +85,12 @@ class Survey extends Component {
                     <Three
                       goBack={goBack}
                       advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={4}>
+                    <Results
                       surveyData={this.props.surveyData}
                       updateSurveyData={this.props.updateSurveyData}
                     />
