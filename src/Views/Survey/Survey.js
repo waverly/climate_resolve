@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import styled from "styled-components";
 
-import { Results, Zero, One, Two, Three } from "Components/Forms";
+import { Results, Zero, One, Two, Three, Four } from "Components/Forms";
 import Sequence from "Components/Sequence";
 import { generateKey } from "Utils/helpers";
 
@@ -27,18 +27,6 @@ const InnerWrapper = styled.div`
   h1 {
     text-align: center;
   }
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-`;
-
-const InputFeedback = styled.div`
-  font-size: 0.8rem;
-  margin: 10px 0;
-  color: red;
 `;
 
 class Survey extends Component {
@@ -90,6 +78,14 @@ class Survey extends Component {
                     />
                   </Sequence.Step>
                   <Sequence.Step number={4}>
+                    <Four
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={5}>
                     <Results
                       surveyData={this.props.surveyData}
                       updateSurveyData={this.props.updateSurveyData}

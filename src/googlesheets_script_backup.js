@@ -2,32 +2,64 @@ var secret = "hIWoO0eblTvhgViejkxFnHb5R8DYlBhVqr8JEVjA";
 
 var ss = SpreadsheetApp.getActiveSpreadsheet();
 var sheet = ss.getSheets()[0];
+var lastRangeLetter;
+
+function addTitleRow(userdata) {
+  var firstKey = Object.keys(userdata)[0];
+  var value = userdata[firstKey];
+  var titleArr = [];
+
+  //MAP OUT KEYS AND ADD TO FIRST ROW
+  Object.keys(value).forEach(function(key, index) {
+    titleArr.push(key);
+
+    if (titleArr.length === Object.keys(value).length) {
+      // calculate range
+      Logger.log(titleArr);
+      Logger.log(titleArr.length);
+
+      lastRangeLetter = String.fromCharCode(titleArr.length + 64);
+      var values = [titleArr];
+      var totalRange = "A1:" + lastRangeLetter + "1";
+      var range = sheet.getRange(totalRange);
+      range.setValues(values);
+    }
+  });
+}
 
 function updateRows(userdata) {
-  Logger.log("inside of updateRow");
+  addTitleRow(userdata);
   var counter = 2;
+
   Object.keys(userdata).forEach(function(key, index) {
     var value = userdata[key];
-    Logger.log(value.firstname);
-    Logger.log(index);
+    // the first array that we will push all values to
+    var valuesPrimary = [];
+    // multi dimensional array we will use to push data to sheet
+    var valuesFinal;
 
-    // The size of the two-dimensional array must match the size of the range.
-    var values = [
-      [
-        value.email,
-        value.firstname,
-        value.lastname,
-        value.languages,
-        value.rent_own
-      ]
-    ];
+    Object.keys(value).forEach(function(key, index) {
+      if (typeof value[key] === "object") {
+        // validate for arrays
+        var toPush = value[key].join(", ");
+        valuesPrimary.push(toPush);
+      } else {
+        valuesPrimary.push(value[key]);
+      }
 
-    var startRange = "A" + counter;
-    var endRange = "E" + counter;
-    var totalRange = "A" + counter + ":" + "E" + counter;
+      if (valuesPrimary.length === Object.keys(value).length) {
+        valuesFinal = [valuesPrimary];
 
-    var range = sheet.getRange(totalRange);
-    range.setValues(values);
+        if (valuesPrimary.length > 0) {
+          Logger.log(valuesPrimary.length);
+
+          var totalRange = "A" + counter + ":" + lastRangeLetter + counter;
+          Logger.log(totalRange);
+          var range = sheet.getRange(totalRange);
+          range.setValues(valuesFinal);
+        }
+      }
+    });
 
     counter++;
   });
@@ -37,8 +69,6 @@ function getAllData() {
   var firebaseUrl = "https://climate-resolve.firebaseio.com/";
   var base = FirebaseApp.getDatabaseByUrl(firebaseUrl);
   var data = base.getData();
-  Logger.log(data);
-  Logger.log(data.userdata);
 
   updateRows(data.userdata);
 

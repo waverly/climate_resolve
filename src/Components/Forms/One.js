@@ -7,15 +7,24 @@ import * as Yup from "yup";
 import { InputFeedback, ButtonWrapper } from "./Utils";
 
 class One extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {}
+
   render() {
     // once submitted, store values in state to use as initial values
+
     let email,
       firstname,
       lastname = null;
 
-    if (this.props.surveyData[1]) {
-      ({ email, firstname, lastname } = this.props.surveyData[1]);
+    if (this.props.surveyData) {
+      console.log("we got datas");
+      ({ email, firstname, lastname } = this.props.surveyData);
     }
+
+    console.log(this.props.surveyData);
 
     return (
       <Formik
@@ -23,12 +32,9 @@ class One extends Component {
           email: email || "",
           firstname: firstname || "",
           lastname: lastname || ""
-        }} // on submit
-        // i want to validate values (can use an alert for now)
-        // not submit if all values aren't valid
-        // if all values are valid, store data in state
-
+        }}
         onSubmit={(values, { setSubmitting }) => {
+          // on submit
           setTimeout(() => {
             console.log(values);
             this.props.updateSurveyData(1, values);

@@ -60,7 +60,8 @@ export const globalStyles = css`
   }
 
   form {
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
   }
 
   input {

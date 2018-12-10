@@ -10,16 +10,16 @@ import { InputFeedback, ButtonWrapper } from "./Utils";
 
 class Two extends Component {
   render() {
-    let checkboxData = null;
+    let languages = null;
 
-    if (this.props.surveyData[2]) {
-      checkboxData = this.props.surveyData[2].checkboxGroup;
+    if (this.props.surveyData) {
+      ({ languages } = this.props.surveyData);
     }
 
     return (
       <Formik
         initialValues={{
-          checkboxGroup: checkboxData || []
+          checkboxGroup: languages || []
         }}
         validationSchema={Yup.object().shape({
           checkboxGroup: Yup.array().required(

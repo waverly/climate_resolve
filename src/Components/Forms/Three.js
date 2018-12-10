@@ -7,37 +7,25 @@ import * as Yup from "yup";
 import { RadioButton } from "./Inputs";
 import RadioButtonGroup from "./RadioButtonGroup";
 import { InputFeedback, ButtonWrapper } from "./Utils";
-import firebase from "../../firebase.js";
 
 class Three extends Component {
-  pushToFirebase = e => {
-    console.log("inside of push to firebase");
-    // e.preventDefault();
-    const itemsRef = firebase.database().ref("userdata");
-    itemsRef.push(this.props.surveyData);
-
-    //RESET STATE
-    // no function to do that yet
-  };
-
   render() {
+    let rent_own = null;
+    if (this.props.surveyData) {
+      ({ rent_own } = this.props.surveyData);
+    }
+
     return (
       <Formik
-        initialValues={{ radioGroup: "" }}
+        initialValues={{ radioGroup: rent_own || "" }}
         validationSchema={Yup.object().shape({
           radioGroup: Yup.string().required("Please select one option")
         })}
         onSubmit={(values, actions) => {
-          console.log(values, actions);
           setTimeout(() => {
             const radioData = { rent_own: values.radioGroup };
             this.props.updateSurveyData(3, radioData);
-
-            // does this need to be async ?
-            this.pushToFirebase();
-
             this.props.advance();
-
             actions.setSubmitting(false);
           }, 500);
         }}
