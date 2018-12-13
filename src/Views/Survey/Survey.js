@@ -1,7 +1,29 @@
 import React, { Component, Fragment } from "react";
 import styled from "styled-components";
 
-import { Results, Zero, One, Two, Three, Four } from "Components/Forms";
+import {
+  Results,
+  Zero,
+  One,
+  Two,
+  Three,
+  Four,
+  Five,
+  Six,
+  Seven,
+  Eight,
+  Nine,
+  Ten,
+  Eleven,
+  Twelve,
+  Thirteen,
+  Fourteen,
+  Fifteen,
+  Sixteen,
+  Seventeen,
+  Eighteen,
+  Nineteen
+} from "Components/Forms";
 import Sequence from "Components/Sequence";
 import { generateKey } from "Utils/helpers";
 
@@ -86,11 +108,139 @@ class Survey extends Component {
                     />
                   </Sequence.Step>
                   <Sequence.Step number={5}>
-                    <Results
+                    <Five
+                      goBack={goBack}
+                      advance={advance}
                       surveyData={this.props.surveyData}
                       updateSurveyData={this.props.updateSurveyData}
                     />
                   </Sequence.Step>
+                  <Sequence.Step number={6}>
+                    <Six
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={7}>
+                    <Seven
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={8}>
+                    <Eight
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={9}>
+                    <Nine
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={10}>
+                    <Ten
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={11}>
+                    <Eleven
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={12}>
+                    <Twelve
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={13}>
+                    <Thirteen
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={14}>
+                    <Fourteen
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={15}>
+                    <Fifteen
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={16}>
+                    <Sixteen
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={17}>
+                    <Seventeen
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={18}>
+                    <Eighteen
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={19}>
+                    <Nineteen
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  <Sequence.Step number={20}>
+                    <Results
+                      goBack={goBack}
+                      advance={advance}
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step>
+                  {/* <Sequence.Step number={5}>
+                    <Results
+                      surveyData={this.props.surveyData}
+                      updateSurveyData={this.props.updateSurveyData}
+                    />
+                  </Sequence.Step> */}
                   {/* <ButtonWrapper>
                     <button onClick={goBack}>previous</button>
                     <button onClick={advance}>next</button>

@@ -8,22 +8,24 @@ import { RadioButton } from "./Inputs";
 import RadioButtonGroup from "./RadioButtonGroup";
 import { InputFeedback, ButtonWrapper, SectionTitle } from "./Utils";
 
-class Three extends Component {
+class Sixteen extends Component {
   render() {
-    let _03_1_rent_own = null;
+    let _16_1_difficulty = null;
     if (this.props.surveyData) {
-      ({ _03_1_rent_own } = this.props.surveyData);
+      ({ _16_1_difficulty } = this.props.surveyData);
     }
 
     return (
       <Formik
-        initialValues={{ rentOrOwn: _03_1_rent_own || "" }}
+        initialValues={{ difficulty: _16_1_difficulty || "" }}
         validationSchema={Yup.object().shape({
-          rentOrOwn: Yup.string().required("Please select one option")
+          difficulty: Yup.string().required("Please select one option")
         })}
         onSubmit={(values, actions) => {
           setTimeout(() => {
-            const radioData = { _03_1_rent_own: values.rentOrOwn };
+            const radioData = {
+              _16_1_difficulty: values.difficulty
+            };
             this.props.updateSurveyData(radioData);
             this.props.advance();
             actions.setSubmitting(false);
@@ -39,36 +41,49 @@ class Three extends Component {
           isSubmitting
         }) => (
           <Fragment>
-            <SectionTitle>The Basics</SectionTitle>
+            <SectionTitle>Rebates and energy efficiency services</SectionTitle>
             <Form>
               <RadioButtonGroup
-                id="rentOrOwn"
-                label="My family or I"
-                value={values.rentOrOwn}
-                error={errors.rentOrOwn}
-                touched={touched.rentOrOwn}
+                id="difficulty"
+                label="I found the process of applying for a rebate/program"
+                value={values.difficulty}
+                error={errors.difficulty}
+                touched={touched.difficulty}
               >
                 <Field
                   component={RadioButton}
-                  name="rentOrOwn"
-                  id="rent"
-                  label="Rent our home"
+                  name="difficulty"
+                  id="Easy"
+                  label="Easy"
                 />
                 <Field
                   component={RadioButton}
-                  name="rentOrOwn"
-                  id="own"
-                  label="Own our home"
+                  name="difficulty"
+                  id="Somewhat easy"
+                  label="Somewhat easy"
                 />
                 <Field
                   component={RadioButton}
-                  name="rentOrOwn"
-                  id="N/A"
-                  label="N/A"
+                  name="difficulty"
+                  id="Average"
+                  label="Average"
+                />
+                <Field
+                  component={RadioButton}
+                  name="difficulty"
+                  id="Somewhat difficult"
+                  label="Somewhat difficult"
+                />
+                <Field
+                  component={RadioButton}
+                  name="difficulty"
+                  id="Difficult"
+                  label="Difficult"
                 />
               </RadioButtonGroup>
-              {errors.rentOrOwn && touched.rentOrOwn && (
-                <InputFeedback>{errors.rentOrOwn}</InputFeedback>
+
+              {errors.difficulty && touched.difficulty && (
+                <InputFeedback>{errors.difficulty}</InputFeedback>
               )}
               <ButtonWrapper>
                 <button
@@ -90,4 +105,4 @@ class Three extends Component {
   }
 }
 
-export default Three;
+export default Sixteen;

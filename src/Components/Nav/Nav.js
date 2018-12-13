@@ -105,7 +105,7 @@ const Nav = props => {
       <NavWrapper navDisplay={navDisplay}>
         <Left>
           <Link to="/" onClick={() => setNavDisplay(!navDisplay)}>
-            <TitleItem> Climate Resolve </TitleItem>
+            <TitleItem> LADWP Services and Rebate Programs </TitleItem>
           </Link>
           <NavItems>
             <Link to="/" onClick={() => setNavDisplay(!navDisplay)}>

@@ -8,22 +8,22 @@ import { RadioButton } from "./Inputs";
 import RadioButtonGroup from "./RadioButtonGroup";
 import { InputFeedback, ButtonWrapper, SectionTitle } from "./Utils";
 
-class Three extends Component {
+class Eight extends Component {
   render() {
-    let _03_1_rent_own = null;
+    let _08_1_knowledgable = null;
     if (this.props.surveyData) {
-      ({ _03_1_rent_own } = this.props.surveyData);
+      ({ _08_1_knowledgable } = this.props.surveyData);
     }
 
     return (
       <Formik
-        initialValues={{ rentOrOwn: _03_1_rent_own || "" }}
+        initialValues={{ knowledgable: _08_1_knowledgable || "" }}
         validationSchema={Yup.object().shape({
-          rentOrOwn: Yup.string().required("Please select one option")
+          knowledgable: Yup.string().required("Please select one option")
         })}
         onSubmit={(values, actions) => {
           setTimeout(() => {
-            const radioData = { _03_1_rent_own: values.rentOrOwn };
+            const radioData = { _08_1_knowledgable: values.knowledgable };
             this.props.updateSurveyData(radioData);
             this.props.advance();
             actions.setSubmitting(false);
@@ -42,33 +42,33 @@ class Three extends Component {
             <SectionTitle>The Basics</SectionTitle>
             <Form>
               <RadioButtonGroup
-                id="rentOrOwn"
-                label="My family or I"
-                value={values.rentOrOwn}
-                error={errors.rentOrOwn}
-                touched={touched.rentOrOwn}
+                id="knowledgable"
+                label="I am knowledgeable about what I can do to save energy"
+                value={values.knowledgable}
+                error={errors.knowledgable}
+                touched={touched.knowledgable}
               >
                 <Field
                   component={RadioButton}
-                  name="rentOrOwn"
-                  id="rent"
-                  label="Rent our home"
+                  name="knowledgable"
+                  id="Yes"
+                  label="Yes"
                 />
                 <Field
                   component={RadioButton}
-                  name="rentOrOwn"
-                  id="own"
-                  label="Own our home"
+                  name="knowledgable"
+                  id="No"
+                  label="No"
                 />
                 <Field
                   component={RadioButton}
-                  name="rentOrOwn"
-                  id="N/A"
-                  label="N/A"
+                  name="knowledgable"
+                  id="Not sure"
+                  label="Not sure"
                 />
               </RadioButtonGroup>
-              {errors.rentOrOwn && touched.rentOrOwn && (
-                <InputFeedback>{errors.rentOrOwn}</InputFeedback>
+              {errors.knowledgable && touched.knowledgable && (
+                <InputFeedback>{errors.knowledgable}</InputFeedback>
               )}
               <ButtonWrapper>
                 <button
@@ -79,7 +79,7 @@ class Three extends Component {
                   Go Back
                 </button>
                 <button type="submit" disabled={isSubmitting}>
-                  Continue
+                  Submit Form
                 </button>
               </ButtonWrapper>
             </Form>
@@ -90,4 +90,4 @@ class Three extends Component {
   }
 }
 
-export default Three;
+export default Eight;

@@ -8,22 +8,24 @@ import { RadioButton } from "./Inputs";
 import RadioButtonGroup from "./RadioButtonGroup";
 import { InputFeedback, ButtonWrapper, SectionTitle } from "./Utils";
 
-class Three extends Component {
+class Thirteen extends Component {
   render() {
-    let _03_1_rent_own = null;
+    let _13_1_previously_applied = null;
     if (this.props.surveyData) {
-      ({ _03_1_rent_own } = this.props.surveyData);
+      ({ _13_1_previously_applied } = this.props.surveyData);
     }
 
     return (
       <Formik
-        initialValues={{ rentOrOwn: _03_1_rent_own || "" }}
+        initialValues={{ previously_applied: _13_1_previously_applied || "" }}
         validationSchema={Yup.object().shape({
-          rentOrOwn: Yup.string().required("Please select one option")
+          previously_applied: Yup.string().required("Please select one option")
         })}
         onSubmit={(values, actions) => {
           setTimeout(() => {
-            const radioData = { _03_1_rent_own: values.rentOrOwn };
+            const radioData = {
+              _13_1_previously_applied: values.previously_applied
+            };
             this.props.updateSurveyData(radioData);
             this.props.advance();
             actions.setSubmitting(false);
@@ -39,36 +41,36 @@ class Three extends Component {
           isSubmitting
         }) => (
           <Fragment>
-            <SectionTitle>The Basics</SectionTitle>
+            <SectionTitle>Rebates and energy efficiency services</SectionTitle>
             <Form>
               <RadioButtonGroup
-                id="rentOrOwn"
-                label="My family or I"
-                value={values.rentOrOwn}
-                error={errors.rentOrOwn}
-                touched={touched.rentOrOwn}
+                id="previously_applied"
+                label="I have previously applied to use the rebate or energy efficiency services offered by LADWP"
+                value={values.previously_applied}
+                error={errors.previously_applied}
+                touched={touched.previously_applied}
               >
                 <Field
                   component={RadioButton}
-                  name="rentOrOwn"
-                  id="rent"
-                  label="Rent our home"
+                  name="previously_applied"
+                  id="Yes, I have applied for both"
+                  label="Yes, I have applied for both"
                 />
                 <Field
                   component={RadioButton}
-                  name="rentOrOwn"
-                  id="own"
-                  label="Own our home"
+                  name="previously_applied"
+                  id="I have applied for a rebate OR a service"
+                  label="I have applied for a rebate OR a service"
                 />
                 <Field
                   component={RadioButton}
-                  name="rentOrOwn"
-                  id="N/A"
-                  label="N/A"
+                  name="previously_applied"
+                  id="No, I have never applied for a rebate or service"
+                  label="No, I have never applied for a rebate or service"
                 />
               </RadioButtonGroup>
-              {errors.rentOrOwn && touched.rentOrOwn && (
-                <InputFeedback>{errors.rentOrOwn}</InputFeedback>
+              {errors.previously_applied && touched.previously_applied && (
+                <InputFeedback>{errors.previously_applied}</InputFeedback>
               )}
               <ButtonWrapper>
                 <button
@@ -90,4 +92,4 @@ class Three extends Component {
   }
 }
 
-export default Three;
+export default Thirteen;

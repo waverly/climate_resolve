@@ -38,7 +38,7 @@ class App extends Component {
 
   // iterate over object, set state value
 
-  updateSurveyData = (id, data) => {
+  updateSurveyData = data => {
     let surveyDataCopy = Object.assign({}, this.state.surveyData);
 
     Object.keys(data).forEach(function(key, index) {

@@ -1,7 +1,4 @@
 import React, { Component, Fragment } from "react";
-import styled from "styled-components";
-import { render } from "react-dom";
-
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 
@@ -9,26 +6,26 @@ import { Checkbox } from "./Inputs";
 import CheckboxGroup from "./CheckboxGroup";
 import { InputFeedback, ButtonWrapper, SectionTitle } from "./Utils";
 
-class Four extends Component {
+class Eighteen extends Component {
   render() {
-    let _04_1_socioEconomic = null;
+    let _19_1_free_items = null;
     if (this.props.surveyData) {
-      ({ _04_1_socioEconomic } = this.props.surveyData);
+      ({ _19_1_free_items } = this.props.surveyData);
     }
 
     return (
       <Formik
         initialValues={{
-          socioEconomic: _04_1_socioEconomic || []
+          free_items: _19_1_free_items || []
         }}
         validationSchema={Yup.object().shape({
-          socioEconomic: Yup.array().required(
-            "At least one checkbox is required"
-          )
+          free_items: Yup.array().required("At least one checkbox is required")
         })}
         onSubmit={(values, actions) => {
           setTimeout(() => {
-            const checkboxData = { _04_1_socioEconomic: values.socioEconomic };
+            const checkboxData = {
+              _19_1_free_items: values.free_items
+            };
             this.props.updateSurveyData(checkboxData);
             this.props.advance();
             actions.setSubmitting(false);
@@ -44,63 +41,75 @@ class Four extends Component {
           isSubmitting
         }) => (
           <Fragment>
-            <SectionTitle>The Basics</SectionTitle>
+            <SectionTitle>Rebates and energy efficiency services</SectionTitle>
             <Form>
               <CheckboxGroup
-                id="socioEconomic"
-                label="I or someone in my family (check all that apply):"
-                value={values.socioEconomic}
-                error={errors.socioEconomic}
-                touched={touched.socioEconomic}
+                id="free_items"
+                label="I would like to receive a free"
+                value={values.free_items}
+                error={errors.free_items}
+                touched={touched.free_items}
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
               >
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="is low income"
-                  label="is low income"
+                  name="free_items"
+                  id="Showerhead"
+                  label="Showerhead"
                 />
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="is a senior citizen"
-                  label="is a senior citizen"
+                  name="free_items"
+                  id="Shower timer"
+                  label="Shower timer"
                 />
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="is using life support"
-                  label="is using life support"
+                  name="free_items"
+                  id="Kitchen sink aerator"
+                  label="Kitchen sink aerator"
                 />
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="has a disability"
-                  label="has a disability"
+                  name="free_items"
+                  id="Bathroom sink aerator"
+                  label="Bathroom sink aerator"
                 />
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="is treated for a life threatening illness"
-                  label="is treated for a life threatening illness"
+                  name="free_items"
+                  id="Receive free trees"
+                  label="Receive free trees"
                 />
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="has a compromised immune system"
-                  label="has a compromised immune system"
+                  name="free_items"
+                  id="Get an AC tuneup"
+                  label="Get an AC tuneup"
                 />
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="none of the above"
-                  label="none of the above"
+                  name="free_items"
+                  id="Get an efficiency retrofit"
+                  label="Get an efficiency retrofit"
+                />
+                <Field
+                  component={Checkbox}
+                  name="free_items"
+                  id="Recycle my Refrigerator or Freezer"
+                  label="Recycle my Refrigerator or Freezer"
+                />
+                <Field
+                  component={Checkbox}
+                  name="free_items"
+                  id="None of the above"
+                  label="None of the above"
                 />
               </CheckboxGroup>
 
-              {errors.socioEconomic && touched.socioEconomic && (
-                <InputFeedback>{errors.socioEconomic}</InputFeedback>
+              {errors.free_items && touched.free_items && (
+                <InputFeedback>{errors.free_items}</InputFeedback>
               )}
 
               <ButtonWrapper>
@@ -123,4 +132,4 @@ class Four extends Component {
   }
 }
 
-export default Four;
+export default Eighteen;

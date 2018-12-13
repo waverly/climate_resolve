@@ -11,22 +11,24 @@ export const globalStyles = css`
   ${normalized}
 
   @font-face {
-    font-family: "Acumin Pro";
-    font-style: normal;
+    font-family: "Din Round";
+    src: url("fonts/DinRoundRegular.woff2") format("woff2"),
+      url("fonts/DinRoundRegular.woff") format("woff");
     font-weight: normal;
-    src: url("fonts/acumin/Acumin-RPro.woff") format("woff");
+    font-style: normal;
   }
 
   @font-face {
-    font-family: "Acumin Pro Bold";
+    font-family: "Din Round Bold";
+    src: url("fonts/DINRoundPro-Black.woff2") format("woff2"),
+      url("fonts/DINRoundPro-Black.woff") format("woff");
+    font-weight: 900;
     font-style: normal;
-    font-weight: normal;
-    src: url("fonts/acumin/Acumin-BdPro.woff") format("woff");
   }
 
   html {
     font-size: 10px;
-    font-family: "Acumin Pro", Helvetica, sans-serif;
+    font-family: "Din Round", Helvetica, sans-serif;
     font-weight: 300;
   }
 
@@ -36,7 +38,8 @@ export const globalStyles = css`
 
   body {
     padding: 0;
-    font-family: "Acumin Pro", Helvetica, sans-serif;
+    font-family: "Din Round", Helvetica, sans-serif;
+    background-color: #4e70c7;
   }
 
   button,
@@ -45,7 +48,7 @@ export const globalStyles = css`
   option,
   textarea {
     background: white;
-    font-family: "Acumin Pro", Helvetica, sans-serif;
+    font-family: "Din Round", Helvetica, sans-serif;
     font-weight: 300;
     border: none;
     outline: none;
@@ -64,6 +67,28 @@ export const globalStyles = css`
     max-width: 400px;
   }
 
+  label,
+  legend {
+    font-family: "Din Round Bold";
+    color: #95cbea;
+  }
+
+  fieldset {
+    padding: 0;
+    border: none;
+  }
+
+  fieldset {
+    label {
+      font-family: "Din Round";
+      color: white;
+    }
+    legend {
+      margin-bottom: 2rem;
+      font-size: 1.6rem;
+    }
+  }
+
   input {
     display: block;
   }
@@ -75,7 +100,8 @@ export const globalStyles = css`
 
   button {
     cursor: pointer;
-    background-color: lightgrey;
+    background-color: white;
+    /* color: #95cbea; */
   }
 
   h1,
@@ -94,12 +120,44 @@ export const globalStyles = css`
   }
 
   h1 {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 30px;
+    line-height: 36px;
+    color: white;
     @media screen and (max-width: 1000px) {
-      font-size: 20px;
-      line-height: 28px;
+      font-size: 26px;
+      line-height: 32px;
     }
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 36px;
+    color: white;
+    @media screen and (max-width: 1000px) {
+      font-size: 22px;
+      line-height: 32px;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Din Round Bold", sans-serif;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  a {
+    color: #95cbea;
+  }
+
+  p,
+  li {
+    color: white;
   }
 
   h2,
@@ -125,10 +183,6 @@ export const globalStyles = css`
 
   * {
     box-sizing: border-box;
-  }
-
-  h3 {
-    font-family: "Acumin Pro Bold", Helvetica, sans-serif;
   }
 
   #root,

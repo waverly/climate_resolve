@@ -4,8 +4,12 @@ import * as Yup from "yup";
 
 import { InputFeedback, CenteredButtonWrapper } from "./Utils";
 
+const Wrapper = styled.div`
+  max-width: 600px;
+`;
+
 const Zero = props => (
-  <Fragment>
+  <Wrapper>
     <h1>LADWP Customer Survey</h1>
     <br />
     <p>
@@ -26,7 +30,7 @@ const Zero = props => (
     <CenteredButtonWrapper>
       <button onClick={props.advance}>Continue</button>
     </CenteredButtonWrapper>
-  </Fragment>
+  </Wrapper>
 );
 
 export default Zero;

@@ -1,7 +1,4 @@
 import React, { Component, Fragment } from "react";
-import styled from "styled-components";
-import { render } from "react-dom";
-
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 
@@ -9,26 +6,24 @@ import { Checkbox } from "./Inputs";
 import CheckboxGroup from "./CheckboxGroup";
 import { InputFeedback, ButtonWrapper, SectionTitle } from "./Utils";
 
-class Four extends Component {
+class Six extends Component {
   render() {
-    let _04_1_socioEconomic = null;
+    let _06_1_language = null;
     if (this.props.surveyData) {
-      ({ _04_1_socioEconomic } = this.props.surveyData);
+      ({ _06_1_language } = this.props.surveyData);
     }
 
     return (
       <Formik
         initialValues={{
-          socioEconomic: _04_1_socioEconomic || []
+          language: _06_1_language || []
         }}
         validationSchema={Yup.object().shape({
-          socioEconomic: Yup.array().required(
-            "At least one checkbox is required"
-          )
+          language: Yup.array().required("At least one checkbox is required")
         })}
         onSubmit={(values, actions) => {
           setTimeout(() => {
-            const checkboxData = { _04_1_socioEconomic: values.socioEconomic };
+            const checkboxData = { _06_1_language: values.language };
             this.props.updateSurveyData(checkboxData);
             this.props.advance();
             actions.setSubmitting(false);
@@ -47,60 +42,54 @@ class Four extends Component {
             <SectionTitle>The Basics</SectionTitle>
             <Form>
               <CheckboxGroup
-                id="socioEconomic"
-                label="I or someone in my family (check all that apply):"
-                value={values.socioEconomic}
-                error={errors.socioEconomic}
-                touched={touched.socioEconomic}
+                id="language"
+                label="The language I speak at home is:"
+                value={values.language}
+                error={errors.language}
+                touched={touched.language}
                 onChange={setFieldValue}
                 onBlur={setFieldTouched}
               >
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="is low income"
-                  label="is low income"
+                  name="language"
+                  id="english"
+                  label="English"
                 />
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="is a senior citizen"
-                  label="is a senior citizen"
+                  name="language"
+                  id="spanish"
+                  label="Spanish"
                 />
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="is using life support"
-                  label="is using life support"
+                  name="language"
+                  id="korean"
+                  label="Korean"
                 />
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="has a disability"
-                  label="has a disability"
+                  name="language"
+                  id="vietnamese"
+                  label="Vietnamese"
                 />
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="is treated for a life threatening illness"
-                  label="is treated for a life threatening illness"
+                  name="language"
+                  id="chinese"
+                  label="Chinese"
                 />
                 <Field
                   component={Checkbox}
-                  name="socioEconomic"
-                  id="has a compromised immune system"
-                  label="has a compromised immune system"
-                />
-                <Field
-                  component={Checkbox}
-                  name="socioEconomic"
-                  id="none of the above"
-                  label="none of the above"
+                  name="language"
+                  id="other"
+                  label="Other"
                 />
               </CheckboxGroup>
 
-              {errors.socioEconomic && touched.socioEconomic && (
-                <InputFeedback>{errors.socioEconomic}</InputFeedback>
+              {errors.language && touched.language && (
+                <InputFeedback>{errors.language}</InputFeedback>
               )}
 
               <ButtonWrapper>
@@ -123,4 +112,4 @@ class Four extends Component {
   }
 }
 
-export default Four;
+export default Six;
