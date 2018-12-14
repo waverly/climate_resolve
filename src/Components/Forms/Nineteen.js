@@ -1,12 +1,19 @@
 import React, { Component, Fragment } from "react";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
+import firebase from "../../firebase.js";
 
 import { Checkbox } from "./Inputs";
 import CheckboxGroup from "./CheckboxGroup";
 import { InputFeedback, ButtonWrapper, SectionTitle } from "./Utils";
 
 class Eighteen extends Component {
+  pushToFirebase = e => {
+    console.log("inside of push to firebase");
+    const itemsRef = firebase.database().ref("userdata");
+    itemsRef.push(this.props.surveyData);
+  };
+
   render() {
     let _19_1_free_items = null;
     if (this.props.surveyData) {
@@ -23,10 +30,20 @@ class Eighteen extends Component {
         })}
         onSubmit={(values, actions) => {
           setTimeout(() => {
-            const checkboxData = {
+            let checkboxData = {
               _19_1_free_items: values.free_items
             };
+
+            // add current date to dataset
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const returndate = `${year}/${month}/${day}`;
+            checkboxData.date = returndate;
+
             this.props.updateSurveyData(checkboxData);
+            this.pushToFirebase();
             this.props.advance();
             actions.setSubmitting(false);
           }, 500);

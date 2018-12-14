@@ -334,7 +334,9 @@ const Results = props => (
     <h3>LADWP Services and Rebates for You</h3>
     <br />
     <GridWrapper>
-      <CellLeft>AC Optimization Program</CellLeft>
+      <CellLeft>
+        <h3>AC Optimization Program</h3>
+      </CellLeft>
       <CellRight>
         AC Optimization Program: The AC Optimization Program provides services
         by certified, professional heating, ventilation, and air conditioning
@@ -358,7 +360,9 @@ const Results = props => (
           <button>View More Information</button>
         </a>
       </CellRight>
-      <CellLeft>Efficient Product Marketplace</CellLeft>
+      <CellLeft>
+        <h3>Efficient Product Marketplace</h3>
+      </CellLeft>
       <CellRight>
         Efficient Product Marketplace: LADWP’s Efficient Product Marketplace
         (EPM) is a convenient online marketplace that allows customers to shop a
@@ -369,7 +373,9 @@ const Results = props => (
           <button>View More Information</button>
         </a>
       </CellRight>
-      <CellLeft>Free Water Conservation Items</CellLeft>
+      <CellLeft>
+        <h3>Free Water Conservation Items</h3>
+      </CellLeft>
       <CellRight>
         Free Water Conservation Items: If you own or rent a home within the
         LADWP’s service area, you can receive showerheads and aerators for free
@@ -378,7 +384,9 @@ const Results = props => (
           <button>View More Information</button>
         </a>
       </CellRight>
-      <CellLeft>Home Energy Improvement Program</CellLeft>
+      <CellLeft>
+        <h3>Home Energy Improvement Program</h3>
+      </CellLeft>
       <CellRight>
         Home Energy Improvement Program: LADWP is offering residential customers
         the opportunity to improve the energy and water performance in their
@@ -389,7 +397,9 @@ const Results = props => (
           <button>View More Information</button>
         </a>
       </CellRight>
-      <CellLeft>Refrigerator Exchange Program</CellLeft>
+      <CellLeft>
+        <h3>Refrigerator Exchange Program</h3>
+      </CellLeft>
       <CellRight>
         Refrigerator exchange program: The LADWP's Refrigerator Exchange Program
         provides new energy-saving, ENERGY STAR® rated refrigerators in exchange
@@ -398,7 +408,9 @@ const Results = props => (
           <button>View More Information</button>
         </a>
       </CellRight>
-      <CellLeft>Refrigerator Recycling Program</CellLeft>
+      <CellLeft>
+        <h3>Refrigerator Recycling Program</h3>
+      </CellLeft>
       <CellRight>
         Refrigerator Recycling Program: LADWP offers the REfrigerator Turn-In
         and REcycle (RETIRE) Program to our residential customers to encourage

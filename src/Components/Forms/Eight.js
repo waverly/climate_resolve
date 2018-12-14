@@ -79,7 +79,7 @@ class Eight extends Component {
                   Go Back
                 </button>
                 <button type="submit" disabled={isSubmitting}>
-                  Submit Form
+                  Continue
                 </button>
               </ButtonWrapper>
             </Form>

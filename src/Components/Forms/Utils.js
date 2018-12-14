@@ -6,7 +6,6 @@ import * as Yup from "yup";
 
 export const InputFeedback = styled.div`
   color: orange;
-  margin: 10px 0;
 `;
 
 // export const InputFeedback = ({ error }) =>
