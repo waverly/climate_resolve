@@ -119,26 +119,6 @@ export const globalStyles = css`
     color: #1a1934;
   }
 
-  h1 {
-    font-size: 30px;
-    line-height: 36px;
-    color: white;
-    @media screen and (max-width: 1000px) {
-      font-size: 26px;
-      line-height: 32px;
-    }
-  }
-
-  h2 {
-    font-size: 24px;
-    line-height: 36px;
-    color: white;
-    @media screen and (max-width: 1000px) {
-      font-size: 22px;
-      line-height: 32px;
-    }
-  }
-
   h1,
   h2,
   h3,
@@ -173,6 +153,26 @@ export const globalStyles = css`
       @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
       font-size: 1.6rem;
       line-height: 2.6rem;
+    }
+  }
+
+  h1 {
+    font-size: 30px;
+    line-height: 36px;
+    color: white;
+    @media screen and (max-width: 1000px) {
+      font-size: 26px;
+      line-height: 32px;
+    }
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 36px;
+    color: white;
+    @media screen and (max-width: 1000px) {
+      font-size: 22px;
+      line-height: 32px;
     }
   }
 

@@ -25,6 +25,7 @@ import {
   Nineteen
 } from "Components/Forms";
 import Sequence from "Components/Sequence";
+import ProgressBar from "Components/Sequence/ProgressBar";
 import { generateKey } from "Utils/helpers";
 
 const PageWrap = styled.div`
@@ -43,7 +44,7 @@ const InnerWrapper = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   h1 {
@@ -70,8 +71,9 @@ class Survey extends Component {
         <PageWrap loaded={this.state.loaded}>
           <InnerWrapper>
             <Sequence
-              render={({ advance, goBack }) => (
+              render={({ advance, goBack, currentStep, steps }) => (
                 <React.Fragment>
+                  <ProgressBar steps={steps} currentstep={currentStep} />
                   <Sequence.Step number={0}>
                     <Zero advance={advance} />
                   </Sequence.Step>
