@@ -19,7 +19,6 @@ import Sixteen from "./Sixteen";
 import Seventeen from "./Seventeen";
 import Eighteen from "./Eighteen";
 import Nineteen from "./Nineteen";
-
 export {
   Results,
   Zero,

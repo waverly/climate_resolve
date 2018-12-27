@@ -21,10 +21,10 @@ export const theme = {
     quadruple: "48px"
   },
   fontSize: {
-    h1: "2rem",
-    h2: "1.4rem",
-    h3: "1.4rem",
-    p: "1.4rem",
+    h1: "2.4rem",
+    h2: "2rem",
+    h3: "1.8rem",
+    p: "1.6rem",
     h4: "1.4rem",
     h5: "1.4rem",
     mobileXl: "5rem",

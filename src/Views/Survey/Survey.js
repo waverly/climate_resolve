@@ -237,45 +237,9 @@ class Survey extends Component {
                       updateSurveyData={this.props.updateSurveyData}
                     />
                   </Sequence.Step>
-                  {/* <Sequence.Step number={5}>
-                    <Results
-                      surveyData={this.props.surveyData}
-                      updateSurveyData={this.props.updateSurveyData}
-                    />
-                  </Sequence.Step> */}
-                  {/* <ButtonWrapper>
-                    <button onClick={goBack}>previous</button>
-                    <button onClick={advance}>next</button>
-                  </ButtonWrapper> */}
                 </React.Fragment>
               )}
             />
-
-            {/* <Sequence>
-              <Sequence.Step number={0}>
-                <One
-                  surveyData={this.props.surveyData}
-                  updateSurveyData={this.props.updateSurveyData}
-                />
-              </Sequence.Step>
-              <Sequence.Step number={1}>
-                <Two
-                  surveyData={this.props.surveyData}
-                  updateSurveyData={this.props.updateSurveyData}
-                />
-              </Sequence.Step>
-              <Sequence.Step number={2}>
-                <Three
-                  surveyData={this.props.surveyData}
-                  updateSurveyData={this.props.updateSurveyData}
-                />
-              </Sequence.Step>
-
-              <ButtonWrapper>
-                <Sequence.Prev />
-                <Sequence.Next />
-              </ButtonWrapper>
-            </Sequence> */}
           </InnerWrapper>
         </PageWrap>
       );

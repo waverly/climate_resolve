@@ -19,15 +19,14 @@ const ProgressItem = styled.div`
 const ProgressBar = props => {
   const { currentstep, steps } = props;
   const perc = (currentstep * 100) / steps.length;
-
-  console.log(currentstep, steps);
+  const lastTrue = currentstep === steps.length - 1;
 
   return (
     <ProgressBarWrapper>
-      <ProgressItem active={perc < 26 || perc > 25} />
-      <ProgressItem active={(perc > 25 && perc < 51) || perc > 50} />
-      <ProgressItem active={(perc > 50 && perc < 76) || perc > 75} />
-      <ProgressItem active={perc > 75} />
+      <ProgressItem active={perc < 31 || perc > 30} />
+      <ProgressItem active={(perc > 30 && perc < 61) || perc > 60} />
+      <ProgressItem active={(perc > 60 && perc < 91) || perc > 90} />
+      <ProgressItem active={lastTrue} />
     </ProgressBarWrapper>
   );
 };

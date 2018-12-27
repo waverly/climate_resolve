@@ -98,6 +98,11 @@ export const globalStyles = css`
     margin-bottom: 20px;
   }
 
+  select {
+    height: 35px;
+    margin-bottom: 20px;
+  }
+
   button {
     cursor: pointer;
     background-color: white;
@@ -157,8 +162,8 @@ export const globalStyles = css`
   }
 
   h1 {
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 36px;
+    line-height: 44px;
     color: white;
     @media screen and (max-width: 1000px) {
       font-size: 26px;
@@ -167,8 +172,8 @@ export const globalStyles = css`
   }
 
   h2 {
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 30px;
+    line-height: 38px;
     color: white;
     @media screen and (max-width: 1000px) {
       font-size: 22px;

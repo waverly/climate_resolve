@@ -57,7 +57,16 @@ const Titles = styled.h2`
 
 const Results = props => (
   <Fragment>
-    <SectionTitle>Thank you! Here are your results</SectionTitle>
+    <SectionTitle>Thank you for participating in our survey!</SectionTitle>
+    <br />
+    <h3>
+      Below are LAWDP services and rebate programs that may be useful to you
+    </h3>
+    <br />
+    <br />
+    <CenteredButtonWrapper>
+      <button>Email me my results</button>
+    </CenteredButtonWrapper>
     <br />
     <Titles>LADWP Services and Rebates For You</Titles>
     <br />
@@ -362,6 +371,10 @@ const Results = props => (
           </li>
         </ul>
       </CellRight>
+      <h1>
+        More LADWP Energy-saving rebates: 
+        <a href="http://ladwp.com/save">http://ladwp.com/save</a>
+      </h1>
     </GridWrapper>
 
     <br />
@@ -370,48 +383,51 @@ const Results = props => (
     <br />
     <GridWrapper>
       <CellLeft>
-        <h3>AC Optimization Program</h3>
+        <h3>Life-Support Equipment Discount</h3>
       </CellLeft>
       <CellRight>
         <p>
-          AC Optimization Program: The AC Optimization Program provides services
-          by certified, professional heating, ventilation, and air conditioning
-          (HVAC) technicians from approved, licensed contractors to analyze
-          cooling systems and provide basic maintenance and efficiency services.
-          These services are free for all eligible residential and commercial
-          LADWP customers.
+          Do you or a full-time member of your household regularly require the
+          use of an essential life-support device? Eligible devices include, but
+          are not limited to, motorized wheelchairs, respirators (all types),
+          dialysis machines, suction machines, apnea monitors, iron lungs,
+          electronic nerve stimulators, and others.
         </p>
 
-        <a href=" https://www.ladwpactuneup.com/">
+        <a href="https://bit.ly/2yZxc34">
           <button>View More Information</button>
         </a>
       </CellRight>
       <CellLeft>
-        <h3>Consumer Rebate Program</h3>
+        <h3>Low Income Discount Program</h3>
       </CellLeft>
       <CellRight>
         <p>
-          {" "}
-          Consumer Rebate Program: rebates for cool roofs, heating & AC systems,
-          and more.
+          If your income and household size qualify for this rate, the LADWP
+          will apply a discount to your electric and/or water bill. For your
+          convenience, you may download, print, and mail in a paper application
+          form.
         </p>
 
-        <a href="https://bit.ly/2ATH1kB">
+        <a href="https://bit.ly/2yZxc34">
           <button>View More Information</button>
         </a>
       </CellRight>
       <CellLeft>
-        <h3>Efficient Product Marketplace</h3>
+        <h3>Physician Certified Allowance Discount</h3>
       </CellLeft>
       <CellRight>
         <p>
-          Efficient Product Marketplace: LADWP’s Efficient Product Marketplace
-          (EPM) is a convenient online marketplace that allows customers to shop
-          a selection of popular energy efficient brands available at numerous
-          stores and online retailers with pricing and available rebate
-          information.
+          Discounts on electric bills are available to customers who provide
+          verification by a state-licensed physician that a full-time member of
+          the household is a paraplegic, hemiplegic, quadriplegic, multiple
+          sclerosis patient, neuromuscular patient, or scleroderma patient being
+          treated for a life-threatening illness. An allowance is also available
+          if a member of the household has a compromised immune system and has a
+          state-licensed physician’s certification that an additional heating
+          and/or cooling allowance is medically necessary.
         </p>
-        <a href=" https://bit.ly/2zA6oGc">
+        <a href=" https://bit.ly/2yZxc34">
           <button>View More Information</button>
         </a>
       </CellRight>
@@ -430,50 +446,25 @@ const Results = props => (
         </a>
       </CellRight>
       <CellLeft>
-        <h3>Home Energy Improvement Program</h3>
+        <h3>Senior Citizen/ Disability Lifeline Rate</h3>
       </CellLeft>
       <CellRight>
         <p>
-          Home Energy Improvement Program: LADWP is offering residential
-          customers the opportunity to improve the energy and water performance
-          in their homes, which can improve their comfort level and potentially
-          reduce their energy and water cost through the Home Energy Improvement
-          Program (HEIP). The program is free to eligible customers.
+          Customers who are 62 years of age or older or permanently disabled may
+          qualify, based solely on their income, to have a discount applied to
+          their electric and/or water bills. The discount is available under
+          provisions of the Los Angeles Municipal Code or the Revenue and
+          Taxation Code of the State of California.
         </p>
 
-        <a href="https://bit.ly/2zyvIfC">
+        <a href="https://bit.ly/2yZxc34">
           <button>View More Information</button>
         </a>
       </CellRight>
-      <CellLeft>
-        <h3>Refrigerator Exchange Program</h3>
-      </CellLeft>
-      <CellRight>
-        <p>
-          Refrigerator exchange program: The LADWP's Refrigerator Exchange
-          Program provides new energy-saving, ENERGY STAR® rated refrigerators
-          in exchange for qualified older model refrigerators, FREE of charge.
-        </p>
-        <a href="https://bit.ly/2yZBxDl">
-          <button>View More Information</button>
-        </a>
-      </CellRight>
-      <CellLeft>
-        <h3>Refrigerator Recycling Program</h3>
-      </CellLeft>
-      <CellRight>
-        <p>
-          Refrigerator Recycling Program: LADWP offers the REfrigerator Turn-In
-          and REcycle (RETIRE) Program to our residential customers to encourage
-          safe and environmentally friendly recycling of old, energy inefficient
-          refrigerators and freezers. Recycling an old refrigerator/freezer can
-          help our customers reduce their energy bill by up to $192 per year.
-        </p>
-
-        <a href="https://bit.ly/2SVyiFa">
-          <button>View More Information</button>
-        </a>
-      </CellRight>
+      <p>
+        Some Rate Assistance Programs may require additional paperwork and
+        information.
+      </p>
     </GridWrapper>
     <CenteredButtonWrapper>
       <button>Email me my results</button>
